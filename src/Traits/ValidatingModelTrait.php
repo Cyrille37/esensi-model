@@ -198,7 +198,12 @@ trait ValidatingModelTrait
      */
     public function isValid($ruleset = null, $mergeWithSaving = true)
     {
-        $rules = is_array($ruleset) ? $ruleset : $this->getRuleset($ruleset, $mergeWithSaving) ?: $this->getDefaultRules();
+
+        if( is_array($ruleset) ){
+            $rules = $ruleset;    
+        }else{
+            $rules = $this->getRuleset($ruleset, $mergeWithSaving) ?: $this->getDefaultRules();    
+        }
 
         return $this->performValidation($rules);
     }
@@ -245,6 +250,6 @@ trait ValidatingModelTrait
     public function updateRulesetUniques($ruleset = null)
     {
         $rules = $this->getRuleset($ruleset);
-        $this->setRuleset($ruleset, $this->injectUniqueIdentifierToRules($rules));
+        $this->setRuleset($this->injectUniqueIdentifierToRules($rules),$ruleset);
     }
 }

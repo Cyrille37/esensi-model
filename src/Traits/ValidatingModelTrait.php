@@ -4,6 +4,7 @@ namespace Esensi\Model\Traits;
 
 use Esensi\Model\Observers\ValidatingModelObserver;
 use Watson\Validating\ValidatingTrait;
+use Illuminate\Support\Arr ;
 
 /**
  * Trait that implements the Validating Model Interface.
@@ -159,7 +160,7 @@ trait ValidatingModelTrait
     {
         $keys = is_array($keys) ? $keys : func_get_args();
         $rules = $ruleset ? $this->getRuleset($ruleset) : $this->getRules();
-        array_forget($rules, $keys);
+        Arr::forget($rules, $keys);
         if ($ruleset) {
             $this->setRuleset($rules, $ruleset);
         } else {

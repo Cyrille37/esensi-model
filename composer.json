@@ -1,5 +1,5 @@
 {
-    "name": "Cyrille37/laravel-self-validating-model",
+    "name": "cyrille37/laravel-self-validating-model",
     "description": "A simple self validating model (original from Esensi/model)",
     "keywords": ["laravel", "model", "trait", "eloquent", "validating", "validation"],
     "authors": [

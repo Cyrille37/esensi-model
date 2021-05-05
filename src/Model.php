@@ -36,12 +36,12 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @see Illuminate\Contracts\Support\MessageProvider
  */
 abstract class Model extends Eloquent implements
-    EncryptingModelInterface,
-    HashingModelInterface,
-    JugglingModelInterface,
+    //EncryptingModelInterface,
+    //HashingModelInterface,
+    //JugglingModelInterface,
     MessageProvider,
-    PurgingModelInterface,
-    RelatingModelInterface,
+    //PurgingModelInterface,
+    //RelatingModelInterface,
     ValidatingModelInterface
 {
     /*
@@ -60,35 +60,35 @@ abstract class Model extends Eloquent implements
      *
      * @see Esensi\Model\Traits\EncryptingModelTrait
      */
-    use EncryptingModelTrait;
+    //use EncryptingModelTrait;
 
     /*
      * Make model hash attributes.
      *
      * @see Esensi\Model\Traits\HashingModelTrait
      */
-    use HashingModelTrait;
+    //use HashingModelTrait;
 
     /*
      * Make the model juggle attributes when setting and getting
      *
      * @see Esensi\Model\Contracts\JugglingModelInterface
      */
-    use JugglingModelTrait;
+    //use JugglingModelTrait;
 
     /*
      * Make model purge attributes.
      *
      * @see Esensi\Model\Traits\PurgingModelTrait
      */
-    use PurgingModelTrait;
+    //use PurgingModelTrait;
 
     /*
      * Make model use properties for model relationships.
      *
      * @see Esensi\Model\Traits\RelatingModelTrait
      */
-    use RelatingModelTrait;
+    //use RelatingModelTrait;
 
     /**
      * The attributes that should be mutated to dates.
@@ -119,42 +119,42 @@ abstract class Model extends Eloquent implements
      *
      * @var array
      */
-    protected $encryptable = [];
+    //protected $encryptable = [];
 
     /**
      * The attributes to hash before saving.
      *
      * @var array
      */
-    protected $hashable = [];
+    //protected $hashable = [];
 
     /**
      * Attributes to cast to a different type.
      *
      * @var array
      */
-    protected $jugglable = [];
+    //protected $jugglable = [];
 
     /**
      * The attributes to purge before saving.
      *
      * @var array
      */
-    protected $purgeable = [];
+    //protected $purgeable = [];
 
     /**
      * Relationships that the model should set up.
      *
      * @var array
      */
-    protected $relationships = [];
+    //protected $relationships = [];
 
     /**
      * Extra attributes to be added to pivot relationships.
      *
      * @var array
      */
-    protected $relationshipPivots = [];
+    //protected $relationshipPivots = [];
 
     /**
      * Dynamically retrieve attributes.
@@ -163,7 +163,7 @@ abstract class Model extends Eloquent implements
      *
      * @return mixed
      */
-    public function __get($key)
+    /*public function __get($key)
     {
         // Resolve relationship dynamically
         if ($relationship = $this->getDynamicRelationship($key)) {
@@ -181,7 +181,7 @@ abstract class Model extends Eloquent implements
         // This is always called so that even decrypted values
         // can be casted after decrypting.
         return $this->getDynamicJuggle($key, $value);
-    }
+    }*/
 
     /**
      * Dynamically set attributes.
@@ -189,7 +189,7 @@ abstract class Model extends Eloquent implements
      * @param string $key
      * @param mixed  $value
      */
-    public function __set($key, $value)
+    /*public function __set($key, $value)
     {
         // Dynamically set the encryptable attribute
         if ( ! empty($value) && $this->setDynamicEncryptable($key, $value)) {
@@ -201,7 +201,7 @@ abstract class Model extends Eloquent implements
 
         // Dynamically juggle the attribute.
         $this->setDynamicJuggle($key, $value);
-    }
+    }*/
 
     /**
      * Get the messages for the instance.

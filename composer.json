@@ -20,7 +20,7 @@
         "illuminate/contracts": "~5.1",
         "nesbot/Carbon": "~1.9",
         "paragonie/random_compat": "^2",
-        "watson/validating": "~3"
+        "watson/validating": "3.*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "2.0.0-alpha",
